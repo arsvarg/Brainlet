@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1521018229811264431}
   - component: {fileID: 4953315301447505063}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: z
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7986998657564999160}
   - component: {fileID: 4565976989240734194}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: boxGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 5579521431278918951}
   - component: {fileID: 8708877400351635907}
   - component: {fileID: 2111578570493398931}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
