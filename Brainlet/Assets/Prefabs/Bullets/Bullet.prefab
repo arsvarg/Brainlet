@@ -134,5 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletForce: 15
-  fireRate: 2
+  fireRate: 3
   damage: 25

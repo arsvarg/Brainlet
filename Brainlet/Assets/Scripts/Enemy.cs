@@ -4,16 +4,42 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float health = 100;
+    [SerializeField] float maxHealth = 100;
+    [SerializeField] float pathfinderAreaRadius = 10;
+    float currenHealth;
 
+
+    void Start()
+    {
+        currenHealth = maxHealth;
+
+    }
     public void TakeDamage(float damage) {
-        health -= damage;
-        if (health <= 0) {
+        currenHealth -= damage;
+        if (currenHealth <= 0) {
             Die();
         }
     }
 
     void Die() {
         Destroy(gameObject);
+    }
+
+    void Update()
+    {
+        if (Vector2.Distance(transform.position, FindObjectOfType<Player_movement>().transform.position) <= pathfinderAreaRadius)
+        {
+            
+            GetComponent<Pathfinding.AIDestinationSetter>().target = FindObjectOfType<Player_movement>().transform;
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                GetComponent<AudioSource>().Play();
+            }
+            
+        }
+        else
+        {
+            GetComponent<Pathfinding.AIDestinationSetter>().target = null;
+        }
     }
 }
