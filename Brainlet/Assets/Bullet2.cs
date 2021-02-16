@@ -6,6 +6,7 @@ public class Bullet2 : MonoBehaviour
 {
     [SerializeField] float bulletForce;
     [SerializeField] float fireRate;
+    [SerializeField] float damage;
 
     Rigidbody2D rb;
 
@@ -19,6 +20,10 @@ public class Bullet2 : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.GetComponent<Enemy>())
+        {
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+        }
         Destroy(gameObject);
     }
 

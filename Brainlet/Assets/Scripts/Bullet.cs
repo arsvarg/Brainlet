@@ -10,7 +10,6 @@ public class Bullet : MonoBehaviour
 
     Rigidbody2D rb;
 
-
     void Start()
     {
         FindObjectOfType<Player_shooting>().fireRate = fireRate;
@@ -24,7 +23,9 @@ public class Bullet : MonoBehaviour
         {
             collision.gameObject.GetComponent<Box>().TakeDamage(damage);
         }
-
+        else if (collision.gameObject.GetComponent<Enemy>()) {
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+        }
         Destroy(gameObject);
     }
 
