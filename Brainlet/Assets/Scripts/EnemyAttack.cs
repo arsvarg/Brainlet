@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private void OnCollisionEnter2D(Collision2D collision)
+    [SerializeField] float damage = 25f;
+    float delay = .5f;
+    float nextAttack;
+
+    void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && nextAttack <= Time.time)
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Player_health>().TakeDamage(damage);
+            nextAttack = Time.time + delay;
+
         }
     }
+   
 }

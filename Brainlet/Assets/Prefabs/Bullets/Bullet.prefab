@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9024759368324607852}
   - component: {fileID: 7421229807129303733}
   - component: {fileID: 4856956701623431766}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bullet
   m_TagString: bullet
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -136,3 +136,4 @@ MonoBehaviour:
   bulletForce: 15
   fireRate: 3
   damage: 25
+  lifetime: 0.6

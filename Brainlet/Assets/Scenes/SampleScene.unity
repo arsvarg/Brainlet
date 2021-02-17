@@ -539,21 +539,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5579521431278918951, guid: d88eeeec87bde7445b482518ab526420,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.3934176
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579521431278918951, guid: d88eeeec87bde7445b482518ab526420,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.3934176
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579521431278918951, guid: d88eeeec87bde7445b482518ab526420,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.3934176
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579521431278918951, guid: d88eeeec87bde7445b482518ab526420,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.4888926
       objectReference: {fileID: 0}
@@ -909,7 +894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAA4Iez/kmBBYQIAAAYFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzk3GQDHQW+sQ0kM+JqSTiy9CWmMNsuTRR4Bk+O9dyTZ2KRfkt/tWb9+u/UWEsjUwp83aCP6oOZAfIxLO5NuoDz7Ake602ohP6HLeBXdlSKIx55U6oREfB5rVFTgj2E+1kyE5QdArUWhTrfgOMm2dRbig0gKGjHaBrRD6GpEj/t0sA+WEp8k8nD7xtExGZzwyUA7MIHV8O50t8ZekLWWa3qbjltRwvGKSVjXw0EBPnaS3s46ziIkKm2tzkhhjWkphW23EnerYe0Zr67EzTOCCYq9REApBoASxK12oPqQ/F4UF11ph6OlOGDStqUt+6cbJitp9o+6DSh9umszSqKsp+vhf/GYcw4XR1UN37zgJd7hSsP0rPTFq3cDqIXw3kB5NOlC5p1sJ7yWoJ7022iuOQWd8oHoLk7v+8dJaVgLb93gj9Qr0de96N9lurqGHc+z+mElRbaP33xtgI3V0PK4DGJzObxQcl8W2JRANKv5YeKO74Va1gXthrMNQ26UK8rbam5BKVtGz0I13mTYKItyKrkFR6U4vWMZdj/AqNrj2KnJPw/vTXt7GutfiihLhPj9JrkIv+nAZli314RFs+eydFAp60SHwhD5lWqlmw4aedLSNNwVlA9rOC/7vapFkO15MZmyxSIvlJJ2zmznls/l8OWVsivgUSNw9obBPKl8aoa09ODXVF1e4Z91nZbQ2tI7bzg09rMVnpQeWC1XoDTMA6rmpcBEOBi/BN5OvuECDNuCcUHHe5CsnUrM98PxSKI+dro7O0LyvkpNafGgXkJxk8TuSkzM5/wVQSwMEFAAACAgAADgh7PlhXQtsAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTVUVBKL0osyCgGihiCOKWZKSB2tJJBkqGFkWmyhYVZmqWRmXmyrnliiqm5uaVxcrIxUNw4VSkWqL6ksiDVLzE3FaInILEkIy0zLyUzL13PvSgzxR1ktFJsLQBQSwECLQAUAAAICAAAOCHs/5JgQWECAAAGBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAOCHs+WFdC2wAAAB4AAAACQAkAAAAAAAAAAAAAACuAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGUDAAAAAA==
+    dataString: UEsDBBQAAAgIAAA4IezLEPNWYAIAAAYFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzk3GQDHQW+sQ0kM+JqSTiy9CWmMNsuTRR4Bk+O9dyTZ2KRfkt/tWb9+u/UWEsjUwp83aCP6oOZAfIxLO5NuoDz7Ake602ohP6HLeBXdlSKIx55U6oREfB5rVFTgj2E+1kyE5QdArUWhTrfgOMm2dRbig0gKGjHaBrRD6GpEj/t0sA+WEp8k8nD7xtExGZzwyUA7MIHV8O50t8ZekLWWa3qbjltRwvGKSVjXw0EBPnaS3s46ziIkKm2tzkhhjWkphW23EnerYe0Zr67EzTOCCYq9REApBoASxK12oPqQ/F4UF11ph6OlOGDStqUt+6cbJitp9o+6DSh9umqeNrqbo43/xm3EMF0ZXD9294yTc4UrB9q/0xKh1A6uH8N1AejTpQOWebiW8l6Ce9NporzgGnfGB6i1M7vrHS2tZCWzf443UK9DXvevdZLu5hh7OsftjJkW1jd5/b4CN1NHxuA5gcDq/UXBcFtuWQDSo+GPhje6GW9UG7oWxDkNtlyrI22pvQipZRc9CN95l2iiIcCu6BkWlO71gGXc9wqvY4NqryD0N7097eRvrXosrSoT7/CS5Cr3ow2VYttSHR7Dls3dSKOhFh8AT+pRppZoNG3rS0TbeFJQNaDsv+L+rRZLteDGZscUiLZaTdM5u5pTP5vPllLEp4lMgcfeEwj6pfGmEtvbg1FRfXOGedZ+V0drQOm47N/SwFp+VHlguVKE3zACo56bCRTgYvATfTL7iAg3agHNCxXmTr5xIzfbA80uhPHa6OjpD875KTmrxoV1AcpLF70hOzuT8F1BLAwQUAAAICAAAOCHs+WFdC2wAAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNVRUEovSizIKAaKGII4pZkpIHa0kkGSoYWRabKFhVmapZGZebKueWKKqbm5pXFysjFQ3DhVKRaovqSyINUvMTcVoicgsSQjLTMvJTMvXc+9KDPFHWS0UmwtAFBLAQItABQAAAgIAAA4IezLEPNWYAIAAAYFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAA4Iez5YV0LbAAAAHgAAAAJACQAAAAAAAAAAAAAAK0CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAZAMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -2414,21 +2399,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5579521431278918951, guid: d88eeeec87bde7445b482518ab526420,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.415319
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579521431278918951, guid: d88eeeec87bde7445b482518ab526420,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.415319
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579521431278918951, guid: d88eeeec87bde7445b482518ab526420,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.415319
-      objectReference: {fileID: 0}
-    - target: {fileID: 5579521431278918951, guid: d88eeeec87bde7445b482518ab526420,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.2688923
       objectReference: {fileID: 0}
@@ -3501,21 +3471,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 37
-      objectReference: {fileID: 0}
-    - target: {fileID: 7705178577841302019, guid: dd5821d7d1de96248ac68e668056e443,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.65486604
-      objectReference: {fileID: 0}
-    - target: {fileID: 7705178577841302019, guid: dd5821d7d1de96248ac68e668056e443,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.65486604
-      objectReference: {fileID: 0}
-    - target: {fileID: 7705178577841302019, guid: dd5821d7d1de96248ac68e668056e443,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.65486604
       objectReference: {fileID: 0}
     - target: {fileID: 7705178577841302019, guid: dd5821d7d1de96248ac68e668056e443,
         type: 3}
@@ -5614,21 +5569,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 7705178577841302019, guid: dd5821d7d1de96248ac68e668056e443,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6791149
-      objectReference: {fileID: 0}
-    - target: {fileID: 7705178577841302019, guid: dd5821d7d1de96248ac68e668056e443,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6791149
-      objectReference: {fileID: 0}
-    - target: {fileID: 7705178577841302019, guid: dd5821d7d1de96248ac68e668056e443,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6791149
       objectReference: {fileID: 0}
     - target: {fileID: 7705178577841302019, guid: dd5821d7d1de96248ac68e668056e443,
         type: 3}

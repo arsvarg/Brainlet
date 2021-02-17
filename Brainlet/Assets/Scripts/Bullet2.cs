@@ -7,6 +7,9 @@ public class Bullet2 : MonoBehaviour
     [SerializeField] float bulletForce;
     [SerializeField] float fireRate;
     [SerializeField] float damage;
+    [SerializeField] float lifetime = .5f;
+
+    float timeToDie;
 
     Rigidbody2D rb;
 
@@ -16,6 +19,7 @@ public class Bullet2 : MonoBehaviour
         FindObjectOfType<Player_shooting>().fireRate = fireRate;
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(transform.up * bulletForce, ForceMode2D.Impulse);
+        timeToDie = Time.time + lifetime;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -31,6 +35,11 @@ public class Bullet2 : MonoBehaviour
     void Update()
     {
         if (Vector2.Distance(transform.position, FindObjectOfType<Player_movement>().transform.position) > 50f)
+        {
+            Destroy(gameObject);
+        }
+
+        if (Time.time >= timeToDie)
         {
             Destroy(gameObject);
         }

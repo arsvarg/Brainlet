@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -3012177942179081752}
   - component: {fileID: 6563978730535746848}
   - component: {fileID: -6351559000722946488}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bullet2
   m_TagString: bullet
   m_Icon: {fileID: 0}
@@ -99,6 +99,7 @@ MonoBehaviour:
   bulletForce: 7.5
   fireRate: 5
   damage: 10
+  lifetime: 0.5
 --- !u!50 &6563978730535746848
 Rigidbody2D:
   serializedVersion: 4
