@@ -98,6 +98,7 @@ public class Player_shooting : MonoBehaviour
         if (chosenWeapon == 1)
         {
             GameObject bullet = Instantiate(bulletPrefabs[0], firePoints[0].position, firePoints[0].rotation);
+            FindObjectOfType<AudioManager>().Play("shot");
             
         }
 
