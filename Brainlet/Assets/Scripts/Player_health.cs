@@ -5,18 +5,27 @@ using UnityEngine;
 
 public class Player_health : MonoBehaviour
 {
-    [SerializeField] float maxHealth;
+    public float maxHealth;
     float currentHealth;
+    Rigidbody2D rb;
+
+    public float p_currentHealth
+    {
+        get { return currentHealth; }
+        set { currentHealth = value; }
+    }
 
 
     void Start()
     {
         currentHealth = maxHealth;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+
+        currentHealth = Mathf.Clamp(currentHealth - damage, 0f, maxHealth);
 
         if (currentHealth<=0)
         {
@@ -27,6 +36,8 @@ public class Player_health : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        rb.isKinematic = true;
+        GetComponent<SpriteRenderer>().enabled = false;
+        FindObjectOfType<GameManager>().StartCoroutine("Restart");
     }
 }
