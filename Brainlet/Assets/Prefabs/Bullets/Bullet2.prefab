@@ -97,9 +97,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletForce: 7.5
-  fireRate: 5
+  fireRate: 7
   damage: 10
-  lifetime: 0.5
+  lifetime: 1
+  pushForce: 1000
 --- !u!50 &6563978730535746848
 Rigidbody2D:
   serializedVersion: 4
