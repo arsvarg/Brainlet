@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3461970d82d5ca94cbb91fa084c2a3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _noPickUpTime: 15
   _weaponCode: 1
 --- !u!60 &3631287452693500902
 PolygonCollider2D:

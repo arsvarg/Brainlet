@@ -139,6 +139,7 @@ public class Player_shooting : MonoBehaviour
         if (collision.GetComponent<weaponCode>())
         {
             Weapons[collision.GetComponent<weaponCode>()._weaponCode - 1].SetActive(true);
+            Weapons[collision.GetComponent<weaponCode>()._weaponCode - 1].GetComponent<Weapon_script>().RestoreHP();
             Destroy(collision.gameObject);
         }
     }

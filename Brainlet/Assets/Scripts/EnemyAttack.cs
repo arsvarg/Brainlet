@@ -10,12 +10,27 @@ public class EnemyAttack : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" && nextAttack <= Time.time)
+        Debug.Log("Враг потрогал " + collision.collider.gameObject.tag == "weapon");
+
+        if (collision.collider.gameObject.tag == "weapon" && nextAttack <= Time.time)
         {
-            collision.gameObject.GetComponent<Player_health>().TakeDamage(damage);
+            Debug.Log("Враг потрогал " + collision.gameObject);
+
+            collision.gameObject.GetComponentInChildren<Weapon_script>().TakeDamage(damage);
             nextAttack = Time.time + delay;
 
         }
+
+
+        if (collision.collider.gameObject.tag == "Player" && nextAttack <= Time.time)
+        {
+            collision.gameObject.GetComponentInChildren<Player_health>().TakeDamage(damage);
+            nextAttack = Time.time + delay;
+
+        }
+
+
+        
     }
    
 }

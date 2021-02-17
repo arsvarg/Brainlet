@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 5403048967120640355}
-  player: {fileID: 0}
   threshold: 3.1
 --- !u!1 &5403048967081940391
 GameObject:
@@ -101,7 +100,7 @@ MonoBehaviour:
   m_Follow: {fileID: 5403048967036250906}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 6.96
+    OrthographicSize: 10
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -191,7 +190,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.96
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
