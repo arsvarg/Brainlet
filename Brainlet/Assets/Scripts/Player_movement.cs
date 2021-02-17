@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Player_movement : MonoBehaviour
 {
-    [SerializeField] float _moveSpeed;
+    [SerializeField] float _force;
+    [SerializeField] float _maxSpeed;
+    
     public float directionOffset = 0f;
+
 
 
     Rigidbody2D rb;
@@ -33,7 +36,18 @@ public class Player_movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * _moveSpeed * Time.fixedDeltaTime);
+
+        
+
+        rb.AddForce(movement * _force * Time.fixedDeltaTime);
+
+        if (rb.velocity.magnitude > _maxSpeed)
+        {
+            rb.velocity = rb.velocity.normalized * _maxSpeed;
+        }
+
+
+        //rb.MovePosition(rb.position + movement * _moveSpeed * Time.fixedDeltaTime);
 
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f + directionOffset;
