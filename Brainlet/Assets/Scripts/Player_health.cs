@@ -8,6 +8,9 @@ public class Player_health : MonoBehaviour
     public float maxHealth;
     float currentHealth;
     Rigidbody2D rb;
+    [SerializeField] GameObject particleEffectDeath;
+
+    bool isDead;
 
     public float p_currentHealth
     {
@@ -24,10 +27,10 @@ public class Player_health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-
+        StartCoroutine(Flash());
         currentHealth = Mathf.Clamp(currentHealth - damage, 0f, maxHealth);
 
-        if (currentHealth<=0)
+        if (currentHealth<=0 && isDead == false)
         {
             Die();
         }
@@ -36,8 +39,35 @@ public class Player_health : MonoBehaviour
 
     void Die()
     {
+        Instantiate(particleEffectDeath, transform.position, transform.rotation);
+
+        SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
+
+        foreach(SpriteRenderer spr in sprites)
+        {
+            spr.enabled = false;
+        }
+
+        Rigidbody2D[] rbs = GetComponentsInChildren<Rigidbody2D>();
+
+        foreach(Rigidbody2D rb in rbs)
+        {
+            rb.isKinematic = true;
+        }
         rb.isKinematic = true;
         GetComponent<SpriteRenderer>().enabled = false;
         FindObjectOfType<GameManager>().StartCoroutine("Restart");
+
+        isDead = true;
     }
+
+    IEnumerator Flash()
+    {
+
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(.08f);
+        GetComponent<SpriteRenderer>().color = Color.white;
+
+    }
+
 }

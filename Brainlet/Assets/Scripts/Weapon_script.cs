@@ -16,7 +16,7 @@ public class Weapon_script : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-
+        StartCoroutine(Flash());
         currentHP = Mathf.Clamp(currentHP - damage, 0f, maxHP);
 
         if (currentHP <= 0)
@@ -39,5 +39,14 @@ public class Weapon_script : MonoBehaviour
         currentHP = maxHP;
     }
 
-    
+
+    IEnumerator Flash()
+    {
+
+        GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(.08f);
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+
+    }
+
 }

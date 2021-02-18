@@ -11,6 +11,7 @@ public class weaponCode : MonoBehaviour
     {
         GetComponent<PolygonCollider2D>().enabled = false;
         yield return new WaitForSeconds(NoPickUpTime);
+        GetComponent<SpriteRenderer>().color = Color.white;
         GetComponent<PolygonCollider2D>().enabled = true;
     }
 

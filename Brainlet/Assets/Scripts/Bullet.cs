@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] float lifetime = .5f;
     [SerializeField] float pushForce;
     [SerializeField] float recoilForce;
+    [SerializeField] GameObject effectPrefab;
 
     float timeToDie;
 
@@ -34,6 +35,7 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(rb.velocity.normalized * pushForce);
         }
+        Instantiate(effectPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
@@ -47,6 +49,7 @@ public class Bullet : MonoBehaviour
 
         if (Time.time >= timeToDie)
         {
+            Instantiate(effectPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

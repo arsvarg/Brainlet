@@ -118,6 +118,8 @@ MonoBehaviour:
   maxHealth: 100
   pathfinderAreaRadius: 12
   hurtColor: {r: 0.3584906, g: 0.045656823, b: 0.045656823, a: 0}
+  particleEffect: {fileID: 2128600419151293918, guid: cbba65a60c6d73b48835e4aeeffc3154,
+    type: 3}
 --- !u!58 &6193549963995466406
 CircleCollider2D:
   m_ObjectHideFlags: 0

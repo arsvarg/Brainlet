@@ -54,12 +54,12 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
+  - name: music
+    clip: {fileID: 8300000, guid: 993f2bcb3b39a154cafea8103eb6ee58, type: 3}
+    volume: 0.3
     volumeVariance: 0
-    pitch: 0
+    pitch: 1
     pitchVariance: 0
-    loop: 0
+    loop: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}

@@ -880,11 +880,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3631287452693500902, guid: d740fcdf1d347cc4991a69ee9887f78a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3631287452693500903, guid: d740fcdf1d347cc4991a69ee9887f78a,
         type: 3}
       propertyPath: m_Name
@@ -1145,7 +1140,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 156d27e825e6af24ea7df7bc880b47ef, type: 3}
-  m_Color: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
+  m_Color: {r: 0.21698111, g: 0.14021893, b: 0.14021893, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1301,7 +1296,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 156d27e825e6af24ea7df7bc880b47ef, type: 3}
-  m_Color: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
+  m_Color: {r: 0.084905684, g: 0.06448026, b: 0.06448026, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

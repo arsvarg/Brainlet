@@ -104,7 +104,7 @@ public class Player_shooting : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefabs[0], firePoints[0].position, firePoints[0].rotation);
             FindObjectOfType<AudioManager>().Play("shot");
 
-            ImpulseSource.GenerateImpulse(bullet.transform.up);
+            ImpulseSource.GenerateImpulse(bullet.transform.up * 2f);
         }
 
         if (chosenWeapon == 2)

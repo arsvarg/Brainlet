@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float pathfinderAreaRadius = 10;
     float currenHealth;
     public Color hurtColor;
+    [SerializeField] GameObject particleEffect;
     
 
     void Start()
@@ -25,6 +26,8 @@ public class Enemy : MonoBehaviour
     }
 
     void Die() {
+
+        Instantiate(particleEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
