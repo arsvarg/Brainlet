@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   pathfinderAreaRadius: 12
+  hurtColor: {r: 0.3584906, g: 0.045656823, b: 0.045656823, a: 0}
 --- !u!58 &6193549963995466406
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -350,7 +351,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 1291062170983845590, guid: ef2d0ea2799655d45b8b0e1f93312965,
     type: 3}
-  m_Color: {r: 0, g: 0.6698113, b: 0.008139677, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

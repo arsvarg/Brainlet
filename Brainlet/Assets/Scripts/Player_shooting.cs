@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Player_shooting : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Player_shooting : MonoBehaviour
     [SerializeField] GameObject[] Weapons;
     [SerializeField] GameObject[] bulletPrefabs;
 
+
     public GameObject bulletPrefab;
     Player_movement player_movement;
     public float fireRate = 2f;
@@ -18,14 +20,16 @@ public class Player_shooting : MonoBehaviour
     float previousOffset;
     int previousWeapon;
     public AudioSource sound;
-    
+
+    CinemachineImpulseSource ImpulseSource;
+
 
     int chosenWeapon = 1;
 
     void Start()
     {
         player_movement = FindObjectOfType<Player_movement>();
-        
+        ImpulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     void Update()
@@ -99,7 +103,8 @@ public class Player_shooting : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefabs[0], firePoints[0].position, firePoints[0].rotation);
             FindObjectOfType<AudioManager>().Play("shot");
-            
+
+            ImpulseSource.GenerateImpulse(bullet.transform.up);
         }
 
         if (chosenWeapon == 2)

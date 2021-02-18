@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] float maxHealth = 100;
     [SerializeField] float pathfinderAreaRadius = 10;
     float currenHealth;
-
+    public Color hurtColor;
+    
 
     void Start()
     {
@@ -16,6 +17,8 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(float damage) {
         currenHealth -= damage;
+        StartCoroutine(Flash());
+
         if (currenHealth <= 0) {
             Die();
         }
@@ -41,5 +44,14 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<Pathfinding.AIDestinationSetter>().target = null;
         }
+    }
+
+     IEnumerator Flash()
+    {
+        
+        GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(.08f);
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+
     }
 }
