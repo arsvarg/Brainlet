@@ -5,20 +5,19 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] float bulletForce;
-    [SerializeField] float fireRate;
-    [SerializeField] float damage;
     [SerializeField] float lifetime = .5f;
     [SerializeField] float pushForce;
     [SerializeField] float recoilForce;
     [SerializeField] GameObject effectPrefab;
-
+    [SerializeField] float damage;
+    
     float timeToDie;
 
     Rigidbody2D rb;
 
     void Start()
     {
-        FindObjectOfType<Player_shooting>().fireRate = fireRate;
+
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(transform.up * bulletForce, ForceMode2D.Impulse);
         FindObjectOfType<Player_movement>().GetComponent<Rigidbody2D>().AddForce(-transform.up * recoilForce, ForceMode2D.Impulse);

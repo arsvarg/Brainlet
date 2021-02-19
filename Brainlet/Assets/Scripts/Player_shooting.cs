@@ -21,7 +21,7 @@ public class Player_shooting : MonoBehaviour
 
     public GameObject bulletPrefab;
     Player_movement player_movement;
-    public float fireRate = 2f;
+    public float fireRate = 0f;
     float nextShootTime;
     float previousOffset;
     int previousWeapon;
@@ -39,6 +39,8 @@ public class Player_shooting : MonoBehaviour
         ImpulseSource = GetComponent<CinemachineImpulseSource>();
         animator = GetComponent<Animator>();
         lineRenderer = GetComponentInChildren<LineRenderer>();
+
+        ChangingWeapon(chosenWeapon);
     }
 
     void Update()
@@ -50,6 +52,7 @@ public class Player_shooting : MonoBehaviour
                 if (Weapons[chosenWeapon - 1].activeSelf)
                 {
                     Shoot(chosenWeapon);
+                    Debug.Log(fireRate);
                     nextShootTime = Time.time + 1f / fireRate;
                 }
                 else
@@ -65,19 +68,16 @@ public class Player_shooting : MonoBehaviour
 
         if (Input.GetKeyDown("1"))
         {
-            player_movement.directionOffset = 0f;
-            chosenWeapon = 1;
+            ChangingWeapon(1);
         }
 
         if (Input.GetKeyDown("2"))
         {
-            player_movement.directionOffset = 90f;
-            chosenWeapon = 2;
+            ChangingWeapon(2);
         }
         if (Input.GetKeyDown("3"))
         {
-            player_movement.directionOffset = -90f;
-            chosenWeapon = 3;
+            ChangingWeapon(3);
         }
        
         if (Input.GetButtonDown("Shield"))
@@ -89,6 +89,7 @@ public class Player_shooting : MonoBehaviour
         {
             player_movement.directionOffset = -180f;
             chosenWeapon = 4;
+
         }
         if (Input.GetButtonUp("Shield"))
         {
@@ -106,7 +107,7 @@ public class Player_shooting : MonoBehaviour
             animator.SetTrigger("shoot");
             
 
-            ImpulseSource.GenerateImpulse(bullet.transform.up * 2f);
+            ImpulseSource.GenerateImpulse(bullet.transform.up.normalized * 4f);
         }
 
         if (chosenWeapon == 2)
@@ -158,10 +159,11 @@ public class Player_shooting : MonoBehaviour
                     hit.transform.gameObject.GetComponent<Box>().TakeDamage(laserDamage);
                 }
 
-                Debug.Log(hit.transform.gameObject);
+                
                 
             }
 
+            ImpulseSource.GenerateImpulse(startPosition.normalized * 10f);
             StartCoroutine(LaserShow(startPosition, endPosition));
 
         }
@@ -175,28 +177,30 @@ public class Player_shooting : MonoBehaviour
         {
             sound.Play();
         }
-        
-
-
 
 
     }
 
     IEnumerator LaserShow(Vector2 startPosition, Vector2 endPosition)
     {
-        float laserShowTime = 0.6f;
-        float currTime = 0f;
         lineRenderer.enabled = true;
 
 
-        while (currTime <= laserShowTime)
-        {
-            lineRenderer.SetPosition(1, Vector2.Lerp(startPosition, endPosition, (currTime / laserShowTime)));
-            currTime += Time.deltaTime;
-            yield return null;
-        }
 
-        lineRenderer.SetPosition(1, endPosition);
+        // Lerp for ray
+        // float laserShowTime = 0.6f;
+        // float currTime = 0f;
+        //
+        //while (currTime <= laserShowTime)
+        //{
+        //    lineRenderer.SetPosition(1, Vector2.Lerp(startPosition, endPosition, (currTime / laserShowTime)));
+        //    currTime += Time.deltaTime;
+        //    yield return null;
+        //}
+        //lineRenderer.SetPosition(1, endPosition);
+        yield return new WaitForSeconds(0.3f);
+
+
         lineRenderer.enabled = false;
     }
     
@@ -209,5 +213,34 @@ public class Player_shooting : MonoBehaviour
             Weapons[collision.GetComponent<weaponCode>()._weaponCode - 1].GetComponent<Weapon_script>().RestoreHP();
             Destroy(collision.gameObject);
         }
+    }
+
+
+    void ChangingWeapon(int _chosenWeapon)
+    {
+        fireRate = Weapons[_chosenWeapon - 1].GetComponent<Weapon_script>().fireRate;
+        nextShootTime = Time.time + 0.1f;
+
+        if (_chosenWeapon == 1)
+        {
+            player_movement.directionOffset = 0f;
+            chosenWeapon = 1;
+            
+        }
+
+        if (_chosenWeapon == 2)
+        {
+            player_movement.directionOffset = 90f;
+            chosenWeapon = 2;
+            
+        }
+        if (_chosenWeapon == 3)
+        {
+            player_movement.directionOffset = -90f;
+            chosenWeapon = 3;
+            
+        }
+
+
     }
 }

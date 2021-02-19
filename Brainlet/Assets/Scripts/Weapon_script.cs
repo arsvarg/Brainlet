@@ -7,6 +7,8 @@ public class Weapon_script : MonoBehaviour
 {
     [SerializeField] float maxHP;
     [SerializeField] GameObject _droppedWeaponPrefab;
+    
+    public float fireRate;
     float currentHP;
 
     void Start()
