@@ -14,7 +14,7 @@ public class EnemyAttack : MonoBehaviour
 
         if (collision.collider.gameObject.tag == "weapon" && nextAttack <= Time.time)
         {
-            Debug.Log("Враг потрогал " + collision.gameObject);
+
 
             collision.gameObject.GetComponentInChildren<Weapon_script>().TakeDamage(damage);
             nextAttack = Time.time + delay;

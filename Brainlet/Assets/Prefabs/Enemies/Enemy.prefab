@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6193549963995466394}
   - component: {fileID: 664933856836720072}
   - component: {fileID: 6166556518201026907}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Enemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -83,10 +83,10 @@ MonoBehaviour:
   version: 2
   radius: 0.8
   height: 2
-  repathRate: 0.2
+  repathRate: 0.1
   canSearch: 1
   canMove: 1
-  maxSpeed: 6
+  maxSpeed: 7
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -95,7 +95,7 @@ MonoBehaviour:
   orientation: 1
   enableRotation: 0
   targetCompatibility: {fileID: 0}
-  maxAcceleration: 3
+  maxAcceleration: 10
   rotationSpeed: 360
   slowdownDistance: 0.6
   pickNextWaypointDist: 1
@@ -116,9 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7fcc941b5369a644a027be377cd5d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  pathfinderAreaRadius: 12
-  currenHealth: 0
+  maxHealth: 75
   hurtColor: {r: 0.3584906, g: 0.045656823, b: 0.045656823, a: 0}
   particleEffect: {fileID: 2128600419151293918, guid: cbba65a60c6d73b48835e4aeeffc3154,
     type: 3}
@@ -294,6 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6fe0081e08f4a54e872973f7c749038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pathfinderAreaRadius: 15
 --- !u!1 &6193549965038404435
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,10 +11,7 @@ public class ChasingEnemyMovement : MonoBehaviour
         {
 
             GetComponent<Pathfinding.AIDestinationSetter>().target = FindObjectOfType<Player_movement>().transform;
-            if (!GetComponent<AudioSource>().isPlaying)
-            {
-                GetComponent<AudioSource>().Play();
-            }
+            
 
         }
         else

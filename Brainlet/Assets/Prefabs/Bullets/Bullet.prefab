@@ -135,9 +135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletForce: 20
-  fireRate: 2
-  damage: 50
-  lifetime: 0.6
+  fireRate: 4
+  damage: 25
+  lifetime: 0.75
   pushForce: 2000
   recoilForce: 3.5
   effectPrefab: {fileID: 7698462104768186905, guid: 74c4ee49d1b92cf41b97517e1d448086,
