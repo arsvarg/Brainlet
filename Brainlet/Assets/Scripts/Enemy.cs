@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float maxHealth = 100;
-    [SerializeField] float pathfinderAreaRadius = 10;
+    
     float currenHealth;
     public Color hurtColor;
     [SerializeField] GameObject particleEffect;
@@ -33,20 +33,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (Vector2.Distance(transform.position, FindObjectOfType<Player_movement>().transform.position) <= pathfinderAreaRadius)
-        {
-            
-            GetComponent<Pathfinding.AIDestinationSetter>().target = FindObjectOfType<Player_movement>().transform;
-            if (!GetComponent<AudioSource>().isPlaying)
-            {
-                GetComponent<AudioSource>().Play();
-            }
-            
-        }
-        else
-        {
-            GetComponent<Pathfinding.AIDestinationSetter>().target = null;
-        }
+        
     }
 
      IEnumerator Flash()

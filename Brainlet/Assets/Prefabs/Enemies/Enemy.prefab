@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6193549963995466395}
   - component: {fileID: 6193549963995466394}
   - component: {fileID: 664933856836720072}
+  - component: {fileID: 6166556518201026907}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: enemy
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   pathfinderAreaRadius: 12
+  currenHealth: 0
   hurtColor: {r: 0.3584906, g: 0.045656823, b: 0.045656823, a: 0}
   particleEffect: {fileID: 2128600419151293918, guid: cbba65a60c6d73b48835e4aeeffc3154,
     type: 3}
@@ -280,6 +282,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6166556518201026907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193549963995466402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6fe0081e08f4a54e872973f7c749038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6193549965038404435
 GameObject:
   m_ObjectHideFlags: 0

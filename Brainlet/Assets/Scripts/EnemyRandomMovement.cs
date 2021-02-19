@@ -1,76 +1,77 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemyRandomMovement : MonoBehaviour
 {
-    public float moveSpeed;
-    private bool moving;
-    public float timeBetweenMove;
-    private float timeBetweenMoveCounter;
-    public float timeToMove;
-    private float timeToMoveCounter;
-    private Vector3 moveDirection;
-
-    private float timeBtwShots;
-    public float startTimeBtwShots;
     public GameObject bullet;
 
-    private Rigidbody2D myRigidBody;
+    private Rigidbody2D rb;
+
+    [SerializeField] float walkpointDistance = 1f;
+    [SerializeField] GameObject walkPointPrefab;
+    GameObject walkPoint;
+    Vector3 walkPointSetter;
+    public LayerMask whatIsSolid;
+    bool walkPointSet;
+    [SerializeField] float timeBetweenChangeDirection = 3f;
+    
+    
+    
+    float previousDirectionChangeTime;
 
     void Start()
     {
-        myRigidBody = GetComponent<Rigidbody2D>();
-        timeBetweenMoveCounter = timeBetweenMove;
-        timeToMoveCounter = timeToMove;
-
-        timeBtwShots = startTimeBtwShots;
+        rb = GetComponent<Rigidbody2D>();
+        walkPoint = Instantiate(walkPointPrefab, transform.position, transform.rotation);
+        GetComponent<AIDestinationSetter>().target = walkPoint.transform;
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if (moving)
-        {
-            timeToMoveCounter -= Time.deltaTime;
-            myRigidBody.velocity = moveDirection;
+        
 
-            if (timeToMoveCounter < 0f) {
-                moving = false;
-                timeBetweenMoveCounter = timeBetweenMove;
-            }
-        }
-        else {
-            timeBetweenMoveCounter -= Time.deltaTime;
-            myRigidBody.velocity = Vector2.zero;
-
-            if (timeBetweenMoveCounter < 0f) {
-                moving = true;
-                timeToMoveCounter = timeToMove;
-                moveDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f) * moveSpeed;
-            }
-        }
-
-        if (timeBtwShots <= 0)
+        if (Time.time >= previousDirectionChangeTime + timeBetweenChangeDirection)
         {
-            GameObject n = Instantiate(bullet, transform.position, Quaternion.identity);
-            n.GetComponent<EnemyBullet>().send(transform.up);
-            GameObject s = Instantiate(bullet, transform.position, Quaternion.identity);
-            s.GetComponent<EnemyBullet>().send(-transform.up);
-            GameObject w = Instantiate(bullet, transform.position, Quaternion.identity);
-            w.GetComponent<EnemyBullet>().send(-transform.right);
-            GameObject e = Instantiate(bullet, transform.position, Quaternion.identity);
-            e.GetComponent<EnemyBullet>().send(transform.right);
-            timeBtwShots = startTimeBtwShots;
-        }
-        else
-        {
-            timeBtwShots -= Time.deltaTime;
+            ChangeDirection();
+
         }
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    void CalculateDirection()
     {
-        //Не работает какого то хуя
-        moveDirection = -myRigidBody.velocity;
+        Vector2 destinationVector;
+        float randomX = Random.Range(-1f, 1f);
+        float randomY = Random.Range(-1f, 1f);
+        destinationVector = new Vector2(randomX, randomY).normalized * walkpointDistance;
+
+
+
+        walkPointSetter = new Vector3(transform.position.x + destinationVector.x, transform.position.y + destinationVector.y, transform.position.z);
+
+        if (!Physics2D.OverlapPoint(walkPointSetter, whatIsSolid))
+        {
+            walkPointSet = true;
+        }
     }
+
+    void ChangeDirection()
+    {
+        walkPointSet = false;
+        CalculateDirection();
+        if (walkPointSet)
+        {
+            walkPoint.transform.position = walkPointSetter;
+            previousDirectionChangeTime = Time.time;
+            walkPointSet = false;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        ChangeDirection();
+    }
+
 }
