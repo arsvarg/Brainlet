@@ -69,9 +69,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -753891407
-  m_SortingLayer: -1
-  m_SortingOrder: 3
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
   m_Sprite: {fileID: 1291062170983845590, guid: ef2d0ea2799655d45b8b0e1f93312965,
     type: 3}
   m_Color: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3461970d82d5ca94cbb91fa084c2a3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _noPickUpTime: 0
   _weaponCode: 6
 --- !u!60 &6849362764950710231
 PolygonCollider2D:

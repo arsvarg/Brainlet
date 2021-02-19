@@ -30,8 +30,7 @@ public class Weapon_script : MonoBehaviour
     private void DestroyWeapon()
     {
         GameObject droppedWeapon = Instantiate(_droppedWeaponPrefab, transform.position, transform.rotation);
-        droppedWeapon.GetComponent<weaponCode>().StartWaiting();
-        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+        droppedWeapon.GetComponent<weaponCode>().StartCoroutine("WaitForPickUp");
         gameObject.SetActive(false);
     }
 
