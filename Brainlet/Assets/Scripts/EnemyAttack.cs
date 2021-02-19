@@ -10,7 +10,7 @@ public class EnemyAttack : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("Враг потрогал " + collision.collider.gameObject.tag == "weapon");
+
 
         if (collision.collider.gameObject.tag == "weapon" && nextAttack <= Time.time)
         {

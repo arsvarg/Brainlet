@@ -4,14 +4,42 @@ using UnityEngine;
 
 public class weaponCode : MonoBehaviour
 {
-    static float NoPickUpTime = 15f;
-    public int _weaponCode; 
+    [SerializeField] float NoPickUpTime = 15f;
+    public int _weaponCode;
+    SpriteRenderer spr;
+    public Color disabledColor;
 
-    public IEnumerator WaitForPickUp()
+     void Awake()
     {
+        spr = GetComponent<SpriteRenderer>();
+        
+    }
+
+    public void StartWaiting()
+    {
+        StartCoroutine(WaitForPickUp());
+    }
+
+    IEnumerator WaitForPickUp()
+    {
+
         GetComponent<PolygonCollider2D>().enabled = false;
-        yield return new WaitForSeconds(NoPickUpTime);
-        GetComponent<SpriteRenderer>().color = Color.white;
+        float currTime = 0f;
+
+        while(currTime <= NoPickUpTime)
+        {
+            
+            spr.color = Color.Lerp(disabledColor, Color.white, (currTime / NoPickUpTime));
+            currTime += Time.deltaTime;
+            yield return null;
+        }
+
+
+        spr.color = Color.white;
+        GetComponent<Animator>().SetTrigger("popup");
+
+        //yield return new WaitForSeconds(NoPickUpTime);
+        //GetComponent<SpriteRenderer>().color = Color.white;
         GetComponent<PolygonCollider2D>().enabled = true;
     }
 

@@ -20,6 +20,7 @@ public class Player_shooting : MonoBehaviour
     float previousOffset;
     int previousWeapon;
     public AudioSource sound;
+    Animator animator;
 
     CinemachineImpulseSource ImpulseSource;
 
@@ -30,6 +31,7 @@ public class Player_shooting : MonoBehaviour
     {
         player_movement = FindObjectOfType<Player_movement>();
         ImpulseSource = GetComponent<CinemachineImpulseSource>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -103,6 +105,8 @@ public class Player_shooting : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefabs[0], firePoints[0].position, firePoints[0].rotation);
             FindObjectOfType<AudioManager>().Play("shot");
+            animator.SetTrigger("shoot");
+            
 
             ImpulseSource.GenerateImpulse(bullet.transform.up * 2f);
         }
