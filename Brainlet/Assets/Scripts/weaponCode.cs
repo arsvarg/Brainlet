@@ -4,15 +4,45 @@ using UnityEngine;
 
 public class weaponCode : MonoBehaviour
 {
-    static float NoPickUpTime = 15f;
-    public int _weaponCode; 
+    float NoPickUpTime = 15f;
+    public int _weaponCode;
+    public Color disableColor;
+    SpriteRenderer spr;
 
-    public IEnumerator WaitForPickUp()
+    
+
+
+    public void StartWaiting()
     {
+        spr = GetComponent<SpriteRenderer>();
+        StartCoroutine(WaitForPickUp());
+        
+    }
+
+     IEnumerator WaitForPickUp()
+    {
+
         GetComponent<PolygonCollider2D>().enabled = false;
-        yield return new WaitForSeconds(NoPickUpTime);
-        GetComponent<SpriteRenderer>().color = Color.white;
+        float currTime = 0f;
+        GetComponent<Animation>().Play();
+
+        do {
+            //spr.color = Color.Lerp(spr.color, Color.white, currTime / NoPickUpTime);
+            //if (spr.color == Color.white)
+            //{
+            //    Debug.Log("Я белый!!! " + currTime);
+            //}
+            currTime += Time.deltaTime;
+            yield return null;
+        } while (currTime <= NoPickUpTime);        
+        
+
+
         GetComponent<PolygonCollider2D>().enabled = true;
     }
+
+
+
+   
 
 }

@@ -103,6 +103,7 @@ public class Player_shooting : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefabs[0], firePoints[0].position, firePoints[0].rotation);
             FindObjectOfType<AudioManager>().Play("shot");
+            Weapons[chosenWeapon - 1].GetComponent<Animator>().SetTrigger("shoot");
 
             ImpulseSource.GenerateImpulse(bullet.transform.up * 2f);
         }
@@ -113,7 +114,7 @@ public class Player_shooting : MonoBehaviour
         }
         if (chosenWeapon == 3)
         {
-            GameObject bullet = Instantiate(bulletPrefabs[2], firePoints[2].position, firePoints[2].rotation);
+            Instantiate(bulletPrefabs[2], firePoints[2].position, firePoints[2].rotation);
             
         }
         if (chosenWeapon == 4)
