@@ -4,32 +4,51 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    [SerializeField] float lifetime = 2f;
     [SerializeField] float bulletForce;
+    [SerializeField] float damage;
+    [SerializeField] float lifetime = .5f;
+    [SerializeField] float pushForce;
+    [SerializeField] float recoilForce;
 
-    public float speed;
-    public Vector2 targetN;
     float timeToDie;
 
     Rigidbody2D rb;
 
+    public float speed;
+
+    private Transform player;
+    private Vector2 target;
+
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
-        //rb.AddForce(targetN * bulletForce, ForceMode2D.Impulse);
-        
-
+        rb.AddForce(transform.up * bulletForce, ForceMode2D.Impulse);
         timeToDie = Time.time + lifetime;
+        target = new Vector2(player.position.x, player.position.y);
     }
+
     private void Update()
     {
-        if (Time.time >= timeToDie)
-        {
+        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
+        if (transform.position.x == target.x && transform.position.y == target.y) {
             Destroy(gameObject);
         }
     }
 
-    public void send(Vector3 vector) {
-        rb.AddForce(vector * bulletForce, ForceMode2D.Impulse);
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<Weapon_script>())
+        {
+            collision.gameObject.GetComponent<Weapon_script>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Player_health>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }
