@@ -134,14 +134,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b67ebbff15179e42b0a19c2e16cfc48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletForce: 20
-  fireRate: 4
-  damage: 25
+  bulletForce: 25
   lifetime: 0.75
   pushForce: 2000
-  recoilForce: 3.5
+  recoilForce: 2
   effectPrefab: {fileID: 7698462104768186905, guid: 74c4ee49d1b92cf41b97517e1d448086,
     type: 3}
+  damage: 25
 --- !u!95 &2307987845651321193
 Animator:
   serializedVersion: 3

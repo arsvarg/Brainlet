@@ -52,7 +52,7 @@ public class Player_shooting : MonoBehaviour
                 if (Weapons[chosenWeapon - 1].activeSelf)
                 {
                     Shoot(chosenWeapon);
-                    Debug.Log(fireRate);
+                    
                     nextShootTime = Time.time + 1f / fireRate;
                 }
                 else
@@ -107,12 +107,13 @@ public class Player_shooting : MonoBehaviour
             animator.SetTrigger("shoot");
             
 
-            ImpulseSource.GenerateImpulse(bullet.transform.up.normalized * 4f);
+            ImpulseSource.GenerateImpulse(bullet.transform.up.normalized * 1f);
         }
 
         if (chosenWeapon == 2)
         {
             fireRate = laserFireRate;
+            GameObject.Find("Laser").GetComponent<Animator>().SetTrigger("shoot");
 
             RaycastHit2D wallHit = Physics2D.Raycast(firePoints[1].position, firePoints[1].right, laserLength, stopLaser);
 
@@ -133,7 +134,6 @@ public class Player_shooting : MonoBehaviour
             else
             {
                 rayLength = laserLength;
-                Debug.Log(wallHit.distance);
                 lineRenderer.SetPosition(0, firePoints[1].position);
                 lineRenderer.SetPosition(1, firePoints[1].position + firePoints[1].right * 100f);
                 endPosition = firePoints[1].position + firePoints[1].right * 100f;
@@ -163,7 +163,7 @@ public class Player_shooting : MonoBehaviour
                 
             }
 
-            ImpulseSource.GenerateImpulse(startPosition.normalized * 10f);
+            ImpulseSource.GenerateImpulse(startPosition.normalized * 15f);
             StartCoroutine(LaserShow(startPosition, endPosition));
 
         }

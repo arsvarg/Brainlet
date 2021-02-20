@@ -31,4 +31,22 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(restartDelay);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void EnableGame()
+    {
+        StartCoroutine(EnableGame_c());
+    }
+
+    IEnumerator EnableGame_c()
+    {
+
+        FindObjectOfType<AudioManager>().Play("music");
+
+        yield return new WaitForSeconds(0.7f);
+        GameObject.Find("Player").GetComponent<Player_movement>().enabled = true;
+        GameObject.Find("Player").GetComponent<Player_shooting>().enabled = true;
+        GameObject.Find("Player").GetComponent<CircleCollider2D>().enabled = true;
+        
+
+    }
 }
