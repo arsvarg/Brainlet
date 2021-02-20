@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: -7168879641480159311}
   m_Layer: 13
   m_Name: RandomMovementEnemy
-  m_TagString: enemyBullet
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,6 +147,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 25344
   timeBetweenChangeDirection: 3
+  shootingRadius: 10
   startTimeBtwShots: 2
   enemyBullet: {fileID: 7372201891755168061, guid: cb8f47d58843cf848ad73b8ac8fa3356,
     type: 3}

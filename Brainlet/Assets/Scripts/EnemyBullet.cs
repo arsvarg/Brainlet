@@ -50,5 +50,12 @@ public class EnemyBullet : MonoBehaviour
             collision.gameObject.GetComponent<Player_health>().TakeDamage(damage);
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.GetComponent<Box>())
+        {
+            collision.gameObject.GetComponent<Box>().TakeDamage(damage);
+            Destroy(gameObject);
+
+        }
     }
 }

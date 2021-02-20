@@ -16,6 +16,7 @@ public class EnemyRandomMovement : MonoBehaviour
     public LayerMask whatIsSolid;
     bool walkPointSet;
     [SerializeField] float timeBetweenChangeDirection = 3f;
+    [SerializeField] float shootingRadius = 10f;
 
     private float timeBtwShots;
     public float startTimeBtwShots;
@@ -44,7 +45,11 @@ public class EnemyRandomMovement : MonoBehaviour
 
         if (timeBtwShots <= 0)
         {
-            Instantiate(enemyBullet, transform.position, Quaternion.identity);
+            if (Vector2.Distance(transform.position, FindObjectOfType<Player_movement>().transform.position) <= shootingRadius)
+            {
+                Instantiate(enemyBullet, transform.position, Quaternion.identity);
+            }
+            
             timeBtwShots = startTimeBtwShots;
         }
         else {
