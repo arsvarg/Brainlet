@@ -23,7 +23,7 @@ public class Weapon_script : MonoBehaviour
 
         if (currentHP <= 0)
         {
-
+            GetComponentInChildren<SpriteRenderer>().color = Color.white;
             DestroyWeapon();
         }
 
@@ -33,7 +33,7 @@ public class Weapon_script : MonoBehaviour
     {
         GameObject droppedWeapon = Instantiate(_droppedWeaponPrefab, transform.position, transform.rotation);
         droppedWeapon.GetComponent<weaponCode>().StartWaiting();
-        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+        
         gameObject.SetActive(false);
     }
 
