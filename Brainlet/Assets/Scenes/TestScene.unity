@@ -528,35 +528,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 774778059, guid: f516103da06834141a17f16dbed179da, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 774778059, guid: f516103da06834141a17f16dbed179da, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.061857104
-      objectReference: {fileID: 0}
-    - target: {fileID: 774778059, guid: f516103da06834141a17f16dbed179da, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
-      value: 0.582469
-      objectReference: {fileID: 0}
-    - target: {fileID: 774778059, guid: f516103da06834141a17f16dbed179da, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].inSlope
-      value: 0.9927193
-      objectReference: {fileID: 0}
-    - target: {fileID: 774778059, guid: f516103da06834141a17f16dbed179da, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outSlope
-      value: 0.9927193
-      objectReference: {fileID: 0}
-    - target: {fileID: 774778059, guid: f516103da06834141a17f16dbed179da, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outWeight
-      value: 0.093457945
-      objectReference: {fileID: 0}
-    - target: {fileID: 5112236711429041877, guid: f516103da06834141a17f16dbed179da,
-        type: 3}
-      propertyPath: fireRate
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 5658655629965884882, guid: f516103da06834141a17f16dbed179da,
         type: 3}
       propertyPath: m_Name
@@ -621,16 +592,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658655630336230055, guid: f516103da06834141a17f16dbed179da,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8289179678211320560, guid: f516103da06834141a17f16dbed179da,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f516103da06834141a17f16dbed179da, type: 3}
