@@ -16,9 +16,12 @@ public class EnemyRandomMovement : MonoBehaviour
     public LayerMask whatIsSolid;
     bool walkPointSet;
     [SerializeField] float timeBetweenChangeDirection = 3f;
-    
-    
-    
+
+    private float timeBtwShots;
+    public float startTimeBtwShots;
+
+    public GameObject enemyBullet;
+
     float previousDirectionChangeTime;
 
     void Start()
@@ -26,6 +29,7 @@ public class EnemyRandomMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         walkPoint = Instantiate(walkPointPrefab, transform.position, transform.rotation);
         GetComponent<AIDestinationSetter>().target = walkPoint.transform;
+        timeBtwShots = startTimeBtwShots;
     }
 
     void Update()
@@ -38,6 +42,14 @@ public class EnemyRandomMovement : MonoBehaviour
 
         }
 
+        if (timeBtwShots <= 0)
+        {
+            Instantiate(enemyBullet, transform.position, Quaternion.identity);
+            timeBtwShots = startTimeBtwShots;
+        }
+        else {
+            timeBtwShots -= Time.deltaTime;
+        }
     }
 
     void CalculateDirection()

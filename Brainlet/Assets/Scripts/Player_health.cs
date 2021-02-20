@@ -10,6 +10,8 @@ public class Player_health : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] GameObject particleEffectDeath;
 
+    public HealthBar healthBar;
+
     bool isDead;
 
     public float p_currentHealth
@@ -22,6 +24,7 @@ public class Player_health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -29,6 +32,7 @@ public class Player_health : MonoBehaviour
     {
         StartCoroutine(Flash());
         currentHealth = Mathf.Clamp(currentHealth - damage, 0f, maxHealth);
+        healthBar.SetHealth(currentHealth);
 
         if (currentHealth<=0 && isDead == false)
         {
