@@ -47,7 +47,7 @@ MonoBehaviour:
   sounds:
   - name: shot
     clip: {fileID: 8300000, guid: 3ef6515657546344cbb37f26d39b34a6, type: 3}
-    volume: 0.5
+    volume: 0.55
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: music
     clip: {fileID: 8300000, guid: 993f2bcb3b39a154cafea8103eb6ee58, type: 3}
-    volume: 0.3
+    volume: 0.25
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
