@@ -17,6 +17,7 @@ public class EnemyRandomMovement : MonoBehaviour
     bool walkPointSet;
     [SerializeField] float timeBetweenChangeDirection = 3f;
     [SerializeField] float shootingRadius = 10f;
+    [SerializeField] float rotationDuration = 0.2f;
 
     private float timeBtwShots;
     public float startTimeBtwShots;
@@ -47,7 +48,11 @@ public class EnemyRandomMovement : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, FindObjectOfType<Player_movement>().transform.position) <= shootingRadius)
             {
-                Instantiate(enemyBullet, transform.position, Quaternion.identity);
+                Vector2 lookDir = (Vector2)FindObjectOfType<Player_movement>().transform.position - rb.position;
+                float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+
+                StartCoroutine(RotateAndFire(angle, rotationDuration));
+
             }
             
             timeBtwShots = startTimeBtwShots;
@@ -89,6 +94,26 @@ public class EnemyRandomMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         ChangeDirection();
+    }
+
+    IEnumerator RotateAndFire(float angle, float rotationDuration)
+    {
+        float startRotation = rb.rotation;
+        float endRotation = angle;
+        float currTime = 0f;
+
+        while (currTime <= rotationDuration)
+        {
+            rb.rotation = Mathf.Lerp(startRotation, endRotation, (currTime / rotationDuration));
+            currTime += Time.deltaTime;
+            yield return null;
+
+        }
+
+        rb.rotation = endRotation;
+        Instantiate(enemyBullet, transform.Find("FirePoint").gameObject.transform.position, Quaternion.identity);
+
+
     }
 
 }

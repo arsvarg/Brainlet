@@ -87,7 +87,7 @@ public class Player_shooting : MonoBehaviour
         }
         if (Input.GetButton("Shield"))
         {
-            player_movement.directionOffset = -180f;
+            player_movement.directionOffset = -90f;
             chosenWeapon = 4;
 
         }

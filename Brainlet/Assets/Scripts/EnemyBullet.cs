@@ -39,7 +39,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Weapon_script>())
+        if (collision.gameObject.tag == "weapon")
         {
             collision.gameObject.GetComponent<Weapon_script>().TakeDamage(damage);
             Destroy(gameObject);
@@ -56,6 +56,11 @@ public class EnemyBullet : MonoBehaviour
             collision.gameObject.GetComponent<Box>().TakeDamage(damage);
             Destroy(gameObject);
 
+        }
+
+        if (collision.gameObject.tag == "shield")
+        {
+            Destroy(gameObject);
         }
     }
 }

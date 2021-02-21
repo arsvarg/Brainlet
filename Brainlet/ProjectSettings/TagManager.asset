@@ -9,6 +9,7 @@ TagManager:
   - weapon
   - environment
   - enemyBullet
+  - shield
   layers:
   - Default
   - TransparentFX

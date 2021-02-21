@@ -16,7 +16,7 @@ public class EnemyAttack : MonoBehaviour
         {
 
 
-            collision.gameObject.GetComponentInChildren<Weapon_script>().TakeDamage(damage);
+            collision.collider.gameObject.GetComponent<Weapon_script>().TakeDamage(damage);
             nextAttack = Time.time + delay;
 
         }
