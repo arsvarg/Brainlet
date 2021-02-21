@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
 
+        InvokeRepeating("Scan", 5f, 2f);
     }
 
     void Update()
@@ -48,5 +48,10 @@ public class GameManager : MonoBehaviour
         GameObject.Find("Player").GetComponent<CircleCollider2D>().enabled = true;
         
 
+    }
+
+    void Scan()
+    {
+        FindObjectOfType<AstarPath>().Scan();
     }
 }

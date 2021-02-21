@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3461970d82d5ca94cbb91fa084c2a3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NoPickUpTime: 15
+  NoPickUpTime: 6
   _weaponCode: 1
   disabledColor: {r: 0.29411766, g: 0.1137255, b: 0.1137255, a: 1}
 --- !u!60 &-4195159814169940618

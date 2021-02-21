@@ -19,4 +19,10 @@ public class ChasingEnemyMovement : MonoBehaviour
             GetComponent<Pathfinding.AIDestinationSetter>().target = null;
         }
     }
+
+    private void OnDrawGizmosSelected()
+    {
+       
+        Gizmos.DrawWireSphere(transform.position, pathfinderAreaRadius);
+    }
 }

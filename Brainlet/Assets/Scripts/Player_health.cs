@@ -10,7 +10,6 @@ public class Player_health : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] GameObject particleEffectDeath;
 
-    public HealthBar healthBar;
 
     bool isDead;
 
@@ -24,7 +23,8 @@ public class Player_health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        
+        FindObjectOfType<HealthBar>().SetMaxHealth(maxHealth);
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -32,7 +32,7 @@ public class Player_health : MonoBehaviour
     {
         StartCoroutine(Flash());
         currentHealth = Mathf.Clamp(currentHealth - damage, 0f, maxHealth);
-        healthBar.SetHealth(currentHealth);
+        FindObjectOfType<HealthBar>().SetHealth(currentHealth);
 
         if (currentHealth<=0 && isDead == false)
         {
@@ -57,6 +57,7 @@ public class Player_health : MonoBehaviour
         foreach(Rigidbody2D rb in rbs)
         {
             rb.isKinematic = true;
+            rb.velocity = Vector2.zero;
         }
         rb.isKinematic = true;
         GetComponent<SpriteRenderer>().enabled = false;

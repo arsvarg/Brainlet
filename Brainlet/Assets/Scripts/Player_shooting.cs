@@ -17,6 +17,7 @@ public class Player_shooting : MonoBehaviour
     [SerializeField] float laserDamage;
     [SerializeField] float laserFireRate = 0.5f;
     LineRenderer lineRenderer;
+    
 
 
     public GameObject bulletPrefab;
@@ -38,7 +39,8 @@ public class Player_shooting : MonoBehaviour
         player_movement = FindObjectOfType<Player_movement>();
         ImpulseSource = GetComponent<CinemachineImpulseSource>();
         animator = GetComponent<Animator>();
-        lineRenderer = GetComponentInChildren<LineRenderer>();
+        lineRenderer = GameObject.Find("LaserLine").GetComponent<LineRenderer>();
+        
 
         ChangingWeapon(chosenWeapon);
     }
@@ -82,7 +84,6 @@ public class Player_shooting : MonoBehaviour
        
         if (Input.GetButtonDown("Shield"))
         {
-            previousOffset = player_movement.directionOffset;
             previousWeapon = chosenWeapon;
         }
         if (Input.GetButton("Shield"))
@@ -93,8 +94,8 @@ public class Player_shooting : MonoBehaviour
         }
         if (Input.GetButtonUp("Shield"))
         {
-            player_movement.directionOffset = previousOffset;
-            chosenWeapon = previousWeapon;
+            ChangingWeapon(previousWeapon);
+            
         }
     }
 
