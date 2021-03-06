@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelEnd : MonoBehaviour
 {
@@ -17,9 +18,20 @@ public class LevelEnd : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (canGoToNextLevel)
+
+
+
+        if (collision.gameObject.tag == "Player" && canGoToNextLevel)
         {
-            FindObjectOfType<GameManager>().StartCoroutine("LoadNextLevel");
+            if (SceneManager.GetActiveScene().name == "level3")
+            {
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                FindObjectOfType<GameManager>().StartCoroutine("LoadNextLevel");
+            }
+            
         } 
     }
 }

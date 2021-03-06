@@ -70,16 +70,22 @@ public class Player_shooting : MonoBehaviour
 
         if (Input.GetKeyDown("1"))
         {
+
+            if (chosenWeapon != 1)
             ChangingWeapon(1);
+
         }
 
         if (Input.GetKeyDown("2"))
         {
+            if (chosenWeapon != 2)
             ChangingWeapon(2);
+            
         }
         if (Input.GetKeyDown("3"))
         {
-            ChangingWeapon(3);
+            if (chosenWeapon != 3)
+                ChangingWeapon(3);
         }
        
         if (Input.GetButtonDown("Shield"))
@@ -113,6 +119,8 @@ public class Player_shooting : MonoBehaviour
 
         if (chosenWeapon == 2)
         {
+            FindObjectOfType<AudioManager>().Play("Laser");
+
             fireRate = laserFireRate;
             GameObject.Find("Laser").GetComponent<Animator>().SetTrigger("shoot");
 
@@ -176,7 +184,7 @@ public class Player_shooting : MonoBehaviour
        
         if (chosenWeapon == 4)
         {
-            sound.Play();
+            //sound.Play();
         }
 
 

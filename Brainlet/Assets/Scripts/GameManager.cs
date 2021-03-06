@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Pathfinding;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-        InvokeRepeating("Scan", 5f, 2f);
+        //InvokeRepeating("Scan", 5f, 2f);
     }
 
     void Update()
@@ -26,8 +27,20 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void StartGame()
+    {
+        StartCoroutine(LoadNextLevel());
+    }
+
     public IEnumerator LoadNextLevel()
     {
+        int scene = SceneManager.GetActiveScene().buildIndex;
+
+        if (SceneManager.GetActiveScene().name == "level3")
+        {
+            scene = -1;
+        }
+
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -50,8 +63,8 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void Scan()
+    public void Scan(Bounds bounds)
     {
-        FindObjectOfType<AstarPath>().Scan();
+        FindObjectOfType<AstarPath>().UpdateGraphs(bounds);
     }
 }

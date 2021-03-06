@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Box : MonoBehaviour
 {
@@ -19,7 +20,10 @@ public class Box : MonoBehaviour
 
         if (currentHP <= 0)
         {
+            FindObjectOfType<AudioManager>().Play("box");
+            FindObjectOfType<AstarPath>().UpdateGraphs(GetComponent<Collider2D>().bounds);
             Destroy(gameObject);
+            
         }
     }
 }

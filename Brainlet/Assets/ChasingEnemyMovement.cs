@@ -10,6 +10,8 @@ public class ChasingEnemyMovement : MonoBehaviour
         if (Vector2.Distance(transform.position, FindObjectOfType<Player_movement>().transform.position) <= pathfinderAreaRadius)
         {
 
+            
+
             GetComponent<Pathfinding.AIDestinationSetter>().target = FindObjectOfType<Player_movement>().transform;
             
 

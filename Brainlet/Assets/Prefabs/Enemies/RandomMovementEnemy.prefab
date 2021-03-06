@@ -208,7 +208,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 25344
   timeBetweenChangeDirection: 3
-  shootingRadius: 15
+  shootingRadius: 20
   rotationDuration: 0.2
   startTimeBtwShots: 2
   enemyBullet: {fileID: 7372201891755168061, guid: cb8f47d58843cf848ad73b8ac8fa3356,
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.8
+  radius: 1.26
   height: 2
   repathRate: 0.2
   canSearch: 1
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7fcc941b5369a644a027be377cd5d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 250
   hurtColor: {r: 1, g: 0, b: 0, a: 0}
   particleEffect: {fileID: 2128600419151293918, guid: cbba65a60c6d73b48835e4aeeffc3154,
     type: 3}

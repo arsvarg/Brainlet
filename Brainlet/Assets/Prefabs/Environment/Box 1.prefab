@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e8ca5710c57f648a79434029cfc825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 50
+  maxHP: 25
 --- !u!60 &8743388434715653463
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -30,6 +30,11 @@ public class Player_health : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (!isDead)
+        {
+            FindObjectOfType<AudioManager>().Play("damage");
+        }
+        
         StartCoroutine(Flash());
         currentHealth = Mathf.Clamp(currentHealth - damage, 0f, maxHealth);
         FindObjectOfType<HealthBar>().SetHealth(currentHealth);

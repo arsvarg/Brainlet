@@ -43,16 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5d6ff70e0f01641af0853f0f1e6dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixerGroup: {fileID: 0}
+  mixerGroup: {fileID: 24300002, guid: 388475a93fc716147b31bb079365dc78, type: 2}
   sounds:
   - name: shot
-    clip: {fileID: 8300000, guid: 3ef6515657546344cbb37f26d39b34a6, type: 3}
-    volume: 0.55
+    clip: {fileID: 8300000, guid: d5d57e05f3008284cbc7a397041f6653, type: 3}
+    volume: 0.18
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 3998044066992112420, guid: 388475a93fc716147b31bb079365dc78,
+      type: 2}
     source: {fileID: 0}
   - name: music
     clip: {fileID: 8300000, guid: 993f2bcb3b39a154cafea8103eb6ee58, type: 3}
@@ -61,5 +62,65 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 1
+    mixerGroup: {fileID: 1265327520504381695, guid: 388475a93fc716147b31bb079365dc78,
+      type: 2}
+    source: {fileID: 0}
+  - name: enemy
+    clip: {fileID: 8300000, guid: 4f55d47ab12651a4680314ea1bc75550, type: 3}
+    volume: 0.25
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 3998044066992112420, guid: 388475a93fc716147b31bb079365dc78,
+      type: 2}
+    source: {fileID: 0}
+  - name: enemy_death
+    clip: {fileID: 8300000, guid: 7f46ab64e0ea91b4695674b45fa51573, type: 3}
+    volume: 0.25
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 3998044066992112420, guid: 388475a93fc716147b31bb079365dc78,
+      type: 2}
+    source: {fileID: 0}
+  - name: enemy_death2
+    clip: {fileID: 8300000, guid: d77976946ce0d85438c3b767f9ce77d4, type: 3}
+    volume: 0.25
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 3998044066992112420, guid: 388475a93fc716147b31bb079365dc78,
+      type: 2}
+    source: {fileID: 0}
+  - name: damage
+    clip: {fileID: 8300000, guid: 87b66cfdfdb25354088c0b7fbbef0c3d, type: 3}
+    volume: 0.25
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 3998044066992112420, guid: 388475a93fc716147b31bb079365dc78,
+      type: 2}
+    source: {fileID: 0}
+  - name: box
+    clip: {fileID: 8300000, guid: 6bd5025551e75c144a70a09f58208971, type: 3}
+    volume: 0.25
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
     mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Laser
+    clip: {fileID: 8300000, guid: 39fe9d9522d79dd4baa64b0b18351fb5, type: 3}
+    volume: 0.25
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 3998044066992112420, guid: 388475a93fc716147b31bb079365dc78,
+      type: 2}
     source: {fileID: 0}

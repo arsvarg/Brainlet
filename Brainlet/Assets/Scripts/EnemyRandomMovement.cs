@@ -11,7 +11,7 @@ public class EnemyRandomMovement : MonoBehaviour
 
     [SerializeField] float walkpointDistance = 1f;
     [SerializeField] GameObject walkPointPrefab;
-    GameObject walkPoint;
+    [HideInInspector] public GameObject walkPoint;
     Vector3 walkPointSetter;
     public LayerMask whatIsSolid;
     bool walkPointSet;
@@ -23,6 +23,8 @@ public class EnemyRandomMovement : MonoBehaviour
     public float startTimeBtwShots;
 
     public GameObject enemyBullet;
+    bool playerNerby;
+    float lookingRadius = 25;
 
     float previousDirectionChangeTime;
 
@@ -36,30 +38,39 @@ public class EnemyRandomMovement : MonoBehaviour
 
     void Update()
     {
-        
-
-        if (Time.time >= previousDirectionChangeTime + timeBetweenChangeDirection)
+        if (Vector2.Distance(transform.position, FindObjectOfType<Player_movement>().transform.position) <= lookingRadius)
         {
-            ChangeDirection();
-
+            playerNerby = true;
         }
 
-        if (timeBtwShots <= 0)
+        if (playerNerby)
         {
-            if (Vector2.Distance(transform.position, FindObjectOfType<Player_movement>().transform.position) <= shootingRadius)
+            if (Time.time >= previousDirectionChangeTime + timeBetweenChangeDirection)
             {
-                Vector2 lookDir = (Vector2)FindObjectOfType<Player_movement>().transform.position - rb.position;
-                float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-
-                StartCoroutine(RotateAndFire(angle, rotationDuration));
+                ChangeDirection();
 
             }
-            
-            timeBtwShots = startTimeBtwShots;
+
+            if (timeBtwShots <= 0)
+            {
+                if (Vector2.Distance(transform.position, FindObjectOfType<Player_movement>().transform.position) <= shootingRadius)
+                {
+                    Vector2 lookDir = (Vector2)FindObjectOfType<Player_movement>().transform.position - rb.position;
+                    float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+
+                    StartCoroutine(RotateAndFire(angle, rotationDuration));
+
+                }
+
+                timeBtwShots = startTimeBtwShots;
+            }
+            else
+            {
+                timeBtwShots -= Time.deltaTime;
+            }
         }
-        else {
-            timeBtwShots -= Time.deltaTime;
-        }
+
+        
     }
 
     void CalculateDirection()
@@ -114,6 +125,11 @@ public class EnemyRandomMovement : MonoBehaviour
         Instantiate(enemyBullet, transform.Find("FirePoint").gameObject.transform.position, Quaternion.identity);
 
 
+    }
+    private void OnDrawGizmosSelected()
+    {
+
+        Gizmos.DrawWireSphere(transform.position, shootingRadius);
     }
 
 }

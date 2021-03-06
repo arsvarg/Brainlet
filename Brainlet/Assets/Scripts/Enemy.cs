@@ -26,7 +26,12 @@ public class Enemy : MonoBehaviour
     }
 
     void Die() {
-
+        if (GetComponent<EnemyRandomMovement>())
+        {
+            GameObject walkPoint = GetComponent<EnemyRandomMovement>().walkPoint;
+            Destroy(walkPoint);
+        }
+        FindObjectOfType<AudioManager>().Play("enemy_death2");
         Instantiate(particleEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
