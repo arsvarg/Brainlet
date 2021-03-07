@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8285594729180463617}
   - component: {fileID: 8285594729180463619}
   - component: {fileID: 789569428217098593}
+  - component: {fileID: 6243460292728295365}
   m_Layer: 0
   m_Name: Truba_fall
   m_TagString: Untagged
@@ -97,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NoPickUpTime: 15
   _weaponCode: 2
-  disabledColor: {r: 0, g: 0, b: 0, a: 0}
+  disabledColor: {r: 0.29411766, g: 0.11372549, b: 0.11372549, a: 1}
 --- !u!60 &789569428217098593
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -324,3 +325,22 @@ PolygonCollider2D:
     - - {x: 0.592, y: 0.716}
       - {x: 0.58400005, y: 0.70400006}
       - {x: 0.588, y: 0.70400006}
+--- !u!95 &6243460292728295365
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8285594729180463618}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7447ad157f09954abc72208cd7d1f15, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

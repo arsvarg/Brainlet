@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player_health : MonoBehaviour
 {
     public float maxHealth;
-    float currentHealth;
+    static float currentHealth;
     Rigidbody2D rb;
     [SerializeField] GameObject particleEffectDeath;
 
@@ -20,11 +20,16 @@ public class Player_health : MonoBehaviour
     }
 
 
+     void Update()
+    {
+               
+    }
+
+
     void Start()
     {
-        currentHealth = maxHealth;
         
-        FindObjectOfType<HealthBar>().SetMaxHealth(maxHealth);
+        FindObjectOfType<HealthBar>().SetHealth(currentHealth);
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -78,6 +83,13 @@ public class Player_health : MonoBehaviour
         yield return new WaitForSeconds(.08f);
         GetComponent<SpriteRenderer>().color = Color.white;
 
+    }
+
+    public void SetHealth(float health)
+    {
+        
+        currentHealth = health;
+        FindObjectOfType<HealthBar>().SetHealth(currentHealth);
     }
 
 }

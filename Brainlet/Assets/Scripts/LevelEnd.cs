@@ -18,16 +18,13 @@ public class LevelEnd : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
+        //Сохранение информации об игроке
+        
 
 
         if (collision.gameObject.tag == "Player" && canGoToNextLevel)
         {
-            if (SceneManager.GetActiveScene().name == "level3")
-            {
-                SceneManager.LoadScene(0);
-            }
-            else
+            
             {
                 FindObjectOfType<GameManager>().StartCoroutine("LoadNextLevel");
             }

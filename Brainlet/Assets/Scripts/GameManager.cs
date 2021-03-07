@@ -7,24 +7,37 @@ using Pathfinding;
 
 public class GameManager : MonoBehaviour
 {
-    
+    public static GameManager instance;
+    public float spawnHealthGlobal;
+
     [SerializeField] float restartDelay = 1.5f;
+
+    void Awake()
+    {
+        spawnHealthGlobal = FindObjectOfType<Player_health>().maxHealth;
+    }
 
     void Start()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
 
-        //InvokeRepeating("Scan", 5f, 2f);
-    }
-
-    void Update()
-    {
         
     }
 
     public IEnumerator Restart()
     {
+        
         yield return new WaitForSeconds(restartDelay);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        FindObjectOfType<Player_health>().SetHealth(FindObjectOfType<Player_health>().maxHealth);
     }
 
     public void StartGame()
@@ -35,14 +48,20 @@ public class GameManager : MonoBehaviour
     public IEnumerator LoadNextLevel()
     {
         int scene = SceneManager.GetActiveScene().buildIndex;
+        
+        //Тут мог бы быть ваш красивый переход между сценами
+        yield return new WaitForSeconds(0.5f);
 
-        if (SceneManager.GetActiveScene().name == "level3")
+        if (scene == 3)
         {
-            scene = -1;
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
-        yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 
     public void EnableGame()
@@ -59,12 +78,10 @@ public class GameManager : MonoBehaviour
         GameObject.Find("Player").GetComponent<Player_movement>().enabled = true;
         GameObject.Find("Player").GetComponent<Player_shooting>().enabled = true;
         GameObject.Find("Player").GetComponent<CircleCollider2D>().enabled = true;
-        
+        GameObject.Find("Player").GetComponent<Player_health>().SetHealth(spawnHealthGlobal);
+
+
 
     }
 
-    public void Scan(Bounds bounds)
-    {
-        FindObjectOfType<AstarPath>().UpdateGraphs(bounds);
-    }
 }

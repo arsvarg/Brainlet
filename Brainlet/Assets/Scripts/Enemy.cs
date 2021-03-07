@@ -36,10 +36,7 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Update()
-    {
-        
-    }
+   
 
      IEnumerator Flash()
     {
