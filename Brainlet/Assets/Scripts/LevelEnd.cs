@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelEnd : MonoBehaviour
 {
     bool canGoToNextLevel = false;
+    bool changingLevel = false;
 
     void Update()
     {
@@ -22,13 +23,10 @@ public class LevelEnd : MonoBehaviour
         
 
 
-        if (collision.gameObject.tag == "Player" && canGoToNextLevel)
+        if (collision.gameObject.tag == "Player" && canGoToNextLevel && !changingLevel)
         {
-            
-            {
                 FindObjectOfType<GameManager>().StartCoroutine("LoadNextLevel");
-            }
-            
+                changingLevel = true;
         } 
     }
 }

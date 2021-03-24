@@ -36,31 +36,27 @@ public class EnemyBullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "weapon")
+        if (collision.collider.gameObject.tag == "weapon")
         {
-            collision.gameObject.GetComponent<Weapon_script>().TakeDamage(damage);
-            Destroy(gameObject);
+            
+            collision.collider.gameObject.GetComponent<Weapon_script>().TakeDamage(damage);
         }
-
-        if (collision.gameObject.tag == "Player")
+        
+        if (collision.collider.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<Player_health>().TakeDamage(damage);
-            Destroy(gameObject);
+            
         }
-
+        
         if (collision.gameObject.GetComponent<Box>())
         {
             collision.gameObject.GetComponent<Box>().TakeDamage(damage);
-            Destroy(gameObject);
-
         }
 
-        if (collision.gameObject.tag == "shield")
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
+
+    
 }

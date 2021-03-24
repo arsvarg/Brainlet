@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public float spawnHealthGlobal;
 
     [SerializeField] float restartDelay = 1.5f;
+    [SerializeField] int lastLevel = 4;
 
     void Awake()
     {
@@ -49,10 +50,11 @@ public class GameManager : MonoBehaviour
     {
         int scene = SceneManager.GetActiveScene().buildIndex;
         
+        
         //Тут мог бы быть ваш красивый переход между сценами
         yield return new WaitForSeconds(0.5f);
 
-        if (scene == 3)
+        if (scene == lastLevel)
         {
             SceneManager.LoadScene(0);
         }

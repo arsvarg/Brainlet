@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletForce: 25
-  lifetime: 0.75
+  lifetime: 0.5
   pushForce: 1500
   recoilForce: 2
   effectPrefab: {fileID: 7698462104768186905, guid: 74c4ee49d1b92cf41b97517e1d448086,

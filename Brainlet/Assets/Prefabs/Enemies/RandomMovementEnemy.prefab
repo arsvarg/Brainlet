@@ -204,15 +204,23 @@ MonoBehaviour:
   walkpointDistance: 4
   walkPointPrefab: {fileID: 7763958118144708401, guid: 284911ae395b27b4da697d2ade64a7c1,
     type: 3}
+  walkPoint: {fileID: 0}
   whatIsSolid:
     serializedVersion: 2
     m_Bits: 25344
+  wall:
+    serializedVersion: 2
+    m_Bits: 16384
+  canShoot:
+    serializedVersion: 2
+    m_Bits: 2049
   timeBetweenChangeDirection: 3
   shootingRadius: 20
   rotationDuration: 0.2
   startTimeBtwShots: 2
   enemyBullet: {fileID: 7372201891755168061, guid: cb8f47d58843cf848ad73b8ac8fa3356,
     type: 3}
+  firePoint: {fileID: 7333606396956127968}
 --- !u!114 &895222603359147655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7fcc941b5369a644a027be377cd5d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 250
+  maxHealth: 200
   hurtColor: {r: 1, g: 0, b: 0, a: 0}
   particleEffect: {fileID: 2128600419151293918, guid: cbba65a60c6d73b48835e4aeeffc3154,
     type: 3}
